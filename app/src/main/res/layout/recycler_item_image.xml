@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<LinearLayout-->
+<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:background="#442F2F2F"-->
+<!--    android:layout_margin="3dp"-->
+<!--    android:layout_height="wrap_content">-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/imgView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:scaleType="fitCenter"-->
+<!--        android:layout_height="wrap_content" />-->
+
+<!--</LinearLayout>-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="3dp"
+    android:orientation="vertical">
+
+<!-- 图片 -->
+    <ImageView
+        android:id="@+id/imgView"
+        android:layout_width="match_parent"
+        android:layout_height="149dp"
+        android:scaleType="centerCrop" />
+
+<!-- 标题 -->
+<TextView
+    android:id="@+id/tv_title"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:textSize="14sp"
+    android:textColor="#333333"
+    android:maxLines="2"
+    android:ellipsize="end"
+    android:text="标题文本" />
+
+<!-- 用户信息区域 -->
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingStart="8dp"
+    android:paddingEnd="8dp"
+    android:paddingBottom="8dp"
+    android:gravity="center_vertical">
+
+    <!-- 圆形头像 -->
+    <ImageView
+        android:id="@+id/iv_user_avatar"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/avator_1"
+        android:scaleType="centerCrop"
+        android:background="@drawable/circle_background"
+        android:clipToOutline="true" />
+
+    <!-- 用户名 -->
+    <TextView
+        android:id="@+id/tv_username"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="6dp"
+        android:textSize="12sp"
+        android:textColor="#666666"
+        android:text="用户名" />
+
+    <!-- 点赞图标 -->
+    <ImageView
+        android:id="@+id/iv_like"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:src="@drawable/untap_like_icon"
+        android:layout_marginEnd="4dp" />
+
+    <!-- 点赞数 -->
+    <TextView
+        android:id="@+id/tv_like_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textColor="#666666"
+        android:text="0" />
+
+</LinearLayout>
+
+</LinearLayout>
