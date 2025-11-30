@@ -101,7 +101,7 @@ public class ExperienceFragment extends Fragment {
                 adapter.addData(moreData);
                 isLoading = false;
             }
-        }, 2000); // 延迟1秒模拟加载
+        }, 1000); // 延迟1秒模拟加载
     }
 
     private void refreshData() {
@@ -113,7 +113,7 @@ public class ExperienceFragment extends Fragment {
                 adapter.refreshData(newData);
                 swipeRefreshLayout.setRefreshing(false);
             }
-        }, 1500); // 延迟1秒模拟刷新
+        }, 1000); // 延迟1秒模拟刷新
     }
 }
 
