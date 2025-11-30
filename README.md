@@ -38,10 +38,10 @@
 - App 模块（`app/`）
   - 构建配置：`app/build.gradle`
   - 清单：`app/src/main/AndroidManifest.xml`
-  - 活动（Activities）：
+  - Activities：
     - `app/src/main/java/com/example/tiktokdemo/activity/SplashActivity.java`
     - `app/src/main/java/com/example/tiktokdemo/activity/MainActivity.java`
-  - 碎片（Fragments）：
+  - Fragments：
     - `app/src/main/java/com/example/tiktokdemo/fragment/ExperienceFragment.java`
     - `app/src/main/java/com/example/tiktokdemo/fragment/TodoFragment.java`
   - RecyclerView：
@@ -54,7 +54,7 @@
     - `res/layout/activity_main.xml`
     - `res/layout/fragment_experience.xml`
     - `res/layout/recycler_item_image.xml`（单个卡片布局）
-  - 可绘制资源（示例）：`res/drawable/like_icon.xml`、`untap_like_icon.xml`、`circle_background.xml`
+  - 可绘制资源：`res/drawable/like_icon.xml`、`untap_like_icon.xml`、`circle_background.xml`
 
 ---
 
