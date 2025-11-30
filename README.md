@@ -53,17 +53,13 @@
   - 主要布局：
     - `res/layout/activity_splash.xml`
     - `res/layout/activity_main.xml`
-    - `res/layout/fragment_experience.xml`（外层 `SwipeRefreshLayout` + 内部 `RecyclerView`）
+    - `res/layout/fragment_experience.xml`
     - `res/layout/recycler_item_image.xml`（单个卡片布局）
   - 可绘制资源（示例）：`res/drawable/like_icon.xml`、`untap_like_icon.xml`、`circle_background.xml`
-  - 网络安全配置：`res/xml/network_security_config.xml`
-  - 测试：`app/src/test/.../ExampleUnitTest.java`、`app/src/androidTest/.../ExampleInstrumentedTest.java`
 
 ---
 
 ## 依赖与版本
-
-集中声明于 `gradle/libs.versions.toml`，并在 `app/build.gradle` 中通过 `libs.xxx` 引用：
 
 - AndroidX
   - AppCompat: `androidx.appcompat:appcompat:1.7.1`
@@ -72,27 +68,15 @@
   - Navigation: `androidx.navigation:navigation-fragment:2.6.0`、`androidx.navigation:navigation-ui:2.6.0`
   - SwipeRefreshLayout: `androidx.swiperefreshlayout:swiperefreshlayout:1.1.0`
 - Material: `com.google.android.material:material:1.13.0`
-- 图片加载：Glide `com.github.bumptech.glide:glide:4.16.0`（含 `annotationProcessor` 编译器）
-- 测试：
-  - JUnit 4: `junit:junit:4.13.2`
-  - AndroidX Test Ext JUnit: `androidx.test.ext:junit:1.3.0`
-  - Espresso: `androidx.test.espresso:espresso-core:3.7.0`
+- 图片加载：Glide `com.github.bumptech.glide:glide:4.16.0`
 
 ---
 
-## 权限与网络安全
+## 权限
 
 - 清单权限（`AndroidManifest.xml`）：
   - `android.permission.INTERNET`
   - `android.permission.ACCESS_NETWORK_STATE`
-- 网络安全（`res/xml/network_security_config.xml`）：
-  - 允许明文访问 `*.com` 域名：
-    ```xml
-    <domain-config cleartextTrafficPermitted="true">
-      <domain includeSubdomains="true">*.com</domain>
-    </domain-config>
-    ```
-- 应用标签中启用了 `usesCleartextTraffic="true"`，便于本地/测试环境访问明文 HTTP。
 
 ---
 
@@ -117,11 +101,4 @@
 
 使用 Android Studio 打开项目并直接运行 `app` 配置。
 
----
-
-## 主题与样式
-
-- 主题：`res/values/themes.xml`、`res/values-night/themes.xml`、`res/values-v23/themes.xml`
-- 颜色：`res/values/colors.xml`
-- 尺寸：`res/values/dimens.xml` 及多尺寸目录（`values-w600dp/` 等）
 
