@@ -8,7 +8,8 @@
   - 数据配置管理：支持 Mock 数据模拟，配置网络图片资源，确保数据可动态更新
 
 开发记录文档：见项目根目录`开发记录.md`
-演示视频链接：仍在上传中
+
+演示视频链接：百度网盘: https://pan.baidu.com/s/1bYx1pB8_S7QlkNI4HaxFbw?pwd=adtd 提取码: adtd
 
 ---
 
