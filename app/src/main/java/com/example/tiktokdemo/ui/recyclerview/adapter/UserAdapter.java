@@ -13,9 +13,7 @@ import com.example.tiktokdemo.ui.recyclerview.viewholder.UserViewHolder;
 
 import java.util.List;
 
-/**
- * create by WUzejian on 2025/11/17
- */
+
 public class UserAdapter extends RecyclerView.Adapter<UserViewHolder> {
     private List<UserBean> mUserList;
 

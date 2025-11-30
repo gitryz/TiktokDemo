@@ -54,8 +54,8 @@ public class StaggeredAdapter extends RecyclerView.Adapter<ImageViewHolder> {
         lp.height = ViewGroup.LayoutParams.WRAP_CONTENT; // 自适应内容高度
         holder.itemView.setLayoutParams(lp);
         FeedItem item = feedItems.get(position);
-//         设置主图片
-        holder.imageView.setBackgroundResource(item.getImageResId());
+////         设置主图片
+//        holder.imageView.setBackgroundResource(item.getImageResId());
         //      绑定其他数据
         holder.bindData(item);
         // 触发加载更多（滑动到倒数第3个item时触发）

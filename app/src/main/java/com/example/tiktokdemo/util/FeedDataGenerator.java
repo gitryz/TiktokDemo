@@ -53,35 +53,62 @@ public class FeedDataGenerator {
     static int[] avatarIds = new int[]{R.drawable.avator_1, R.drawable.avator_4, R.drawable.avator_5, R.drawable.avator_6, R.drawable.avator_7
             , R.drawable.avator_8, R.drawable.avator_9, R.drawable.avator_10, R.drawable.avator_11, R.drawable.avator_12, R.drawable.avator_13, R.drawable.avator_14};
 
+    // 网络图片URL列表
+    private static final String[] NETWORK_IMAGE_URLS = {
+            "https://picsum.photos/400/600?random=",
+            "https://picsum.photos/400/500?random=",
+            "https://picsum.photos/400/700?random=",
+            "https://picsum.photos/400/550?random=",
+            "https://picsum.photos/400/650?random=",
+            "https://picsum.photos/400/600?random=",
+            "https://picsum.photos/400/580?random=",
+            "https://picsum.photos/400/620?random="
+    };
+
+    private static final String[] NETWORK_AVATAR_URLS = {
+            "https://i.pravatar.cc/150?img="
+    };
+
     // 生成初始数据
     public static List<FeedItem> generateInitialData(int count) {
         currentPage = 0;
-        return generateFeedList(count);
+        return generateFeedList(count,false);
     }
 
     // 生成更多数据（分页加载）
     public static List<FeedItem> generateMoreData(int count) {
         currentPage++;
-        return generateFeedList(count);
+        return generateFeedList(count,true);
     }
 
     // 刷新数据
     public static List<FeedItem> refreshData(int count) {
         currentPage = 0;
-        return generateFeedList(count);
+        return generateFeedList(count,true);
     }
 
-    public static List<FeedItem> generateFeedList(int count) {
+    public static List<FeedItem> generateFeedList(int count,boolean useNetworkImage) {
         List<FeedItem> feedList = new ArrayList<>();
 
         for (int i = 0; i < count; i++) {
-            FeedItem item = new FeedItem(
-                    getRandomImage(),
-                    getRandomTitle(),
-                    getRandomAvatar(),
-                    generateRandomName(),
-                    getRandomLikeCount()
-            );
+            FeedItem item;
+            if (useNetworkImage){
+                item = new FeedItem(
+                        getRandomNetworkImage(),
+                        getRandomTitle(),
+                        getRandomNetworkAvatar(),
+                        generateRandomName(),
+                        getRandomLikeCount()
+                );
+            }else {
+                item = new FeedItem(
+                        getRandomImage(),
+                        getRandomTitle(),
+                        getRandomAvatar(),
+                        generateRandomName(),
+                        getRandomLikeCount()
+                );
+            }
             feedList.add(item);
         }
 
@@ -113,5 +140,14 @@ public class FeedDataGenerator {
     }
     private static int getRandomLikeCount() {
         return random.nextInt(1000);
+    }
+
+    private static String getRandomNetworkImage(){
+        return  NETWORK_IMAGE_URLS[random.nextInt(NETWORK_IMAGE_URLS.length)]+String.valueOf(random.nextInt(200));
+    }
+
+    private static String getRandomNetworkAvatar(){
+        return NETWORK_AVATAR_URLS[0]+String.valueOf(random.nextInt(70));
+//        return "https://i.pravatar.cc/150?img="+String.valueOf(random.nextInt(70));
     }
 }

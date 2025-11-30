@@ -1,11 +1,13 @@
 package com.example.tiktokdemo.ui.recyclerview.viewholder;
 
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
-
+import com.bumptech.glide.Glide;
 import com.example.tiktokdemo.R;
 import com.example.tiktokdemo.ui.recyclerview.bean.FeedItem;
 
@@ -28,7 +30,25 @@ public class ImageViewHolder extends RecyclerView.ViewHolder {
 
     public void bindData(FeedItem feedItem) {
         // 设置主图片
-        imageView.setImageResource(feedItem.getImageResId());
+        // 设置用户头像
+        if(feedItem.isNetworkImage()){
+            Glide.with(itemView.getContext())
+                    .load(feedItem.getImageUrl())
+                    .placeholder(R.drawable.image1) // 占位图
+                    .error(R.drawable.image1)       // 错误时显示
+                    .centerCrop()
+                    .into(imageView);
+            Glide.with(itemView.getContext())
+                    .load(feedItem.getAvatarUrl())
+                    .placeholder(R.drawable.avator_1)
+                    .error(R.drawable.avator_1)
+                    .circleCrop() // 圆形头像
+                    .into(ivUserAvatar);
+        }else{
+            imageView.setImageResource(feedItem.getImageResId());
+            ivUserAvatar.setImageResource(feedItem.getAvatarResId());
+        }
+
 //        // 动态设置图片高度
 //        imageView.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
 //            @Override
@@ -36,6 +56,8 @@ public class ImageViewHolder extends RecyclerView.ViewHolder {
 //                imageView.getViewTreeObserver().removeOnPreDrawListener(this);
 //                // 根据图片宽度计算高度（保持宽高比）
 //                int width = imageView.getWidth();
+//                int height = imageView.getHeight();
+//                float ratio = (float) height / width;
 //                // 这里可以根据实际图片的宽高比来计算
 //                // 示例：假设图片宽高比为 3:4
 //                ViewGroup.LayoutParams params = imageView.getLayoutParams();
@@ -47,8 +69,6 @@ public class ImageViewHolder extends RecyclerView.ViewHolder {
 
         // 设置标题
         tvTitle.setText(feedItem.getTitle());
-        // 设置用户头像（动态加载）
-        ivUserAvatar.setImageResource(feedItem.getAvatarResId());
         // 设置用户名
         tvUsername.setText(feedItem.getUsername());
         // 设置点赞数（将整数转换为字符串）

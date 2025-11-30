@@ -27,7 +27,7 @@ public class ExperienceFragment extends Fragment {
     private StaggeredAdapter adapter;
     private boolean isLoading = false;
     private SwipeRefreshLayout swipeRefreshLayout;
-    private static final int PAGE_SIZE = 20;
+    private static final int PAGE_SIZE = 10;
     public ExperienceFragment(){
 
     }
@@ -80,12 +80,6 @@ public class ExperienceFragment extends Fragment {
     }
 
     private void setupSwipeRefresh() {
-        // 设置下拉刷新颜色
-        swipeRefreshLayout.setColorSchemeResources(
-                R.color.purple_500,
-                R.color.purple_700,
-                R.color.teal_200
-        );
 
         // 设置下拉刷新监听
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -107,7 +101,7 @@ public class ExperienceFragment extends Fragment {
                 adapter.addData(moreData);
                 isLoading = false;
             }
-        }, 1000); // 延迟1秒模拟加载
+        }, 2000); // 延迟1秒模拟加载
     }
 
     private void refreshData() {
@@ -119,7 +113,7 @@ public class ExperienceFragment extends Fragment {
                 adapter.refreshData(newData);
                 swipeRefreshLayout.setRefreshing(false);
             }
-        }, 1500); // 延迟1.5秒模拟刷新
+        }, 1500); // 延迟1秒模拟刷新
     }
 }
 
