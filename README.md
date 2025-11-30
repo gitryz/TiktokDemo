@@ -7,10 +7,6 @@
   - 数据刷新机制：实现上拉加载更多数据和下拉刷新最新内容的功能
   - 数据配置管理：支持 Mock 数据模拟，配置网络图片资源，确保数据可动态更新
 
-- 应用 ID：`com.example.tiktokdemo`
-- 语言：Java 11（`sourceCompatibility/targetCompatibility=11`）
-- 构建工具：Gradle 8.13
-- SDK：`compileSdk=36`，`targetSdk=36`，`minSdk=21`
 
 ---
 
